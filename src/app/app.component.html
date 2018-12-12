@@ -1,9 +1,17 @@
 <!--The content below is only a placeholder and can be replaced.-->
-
-<ul>
+<!-- <ul>
   <li class="text" *ngFor="let chat of chats | async">
     {{ chat.message }}
   </li>
-</ul>
+</ul> -->
+<div class="container">
+  <blockquote class="blockquote text-center mt-5">
+    <p class="mb-0">Simple real Chat App using Angular and AgularFire.</p>
+    <footer class="blockquote-footer">Powered by <cite title="Source Title">Firestore</cite></footer>
+  </blockquote>
+  <div class="chat-window">
+    <app-chat></app-chat>
+  </div>
+</div>
 
 <router-outlet></router-outlet>

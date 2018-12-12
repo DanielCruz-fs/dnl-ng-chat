@@ -8,8 +8,9 @@ import { Observable } from 'rxjs';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'FireChat';
+  
   public chats: Observable<any[]>;
+
   constructor(db: AngularFirestore) {
     this.chats = db.collection('chats').valueChanges();
   }
