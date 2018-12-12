@@ -1,15 +1,15 @@
 <h3 class="text-monospace">Chat:</h3>
 <hr>
 <div class="app-mensajes" id="app-messages">
-  <div class="text-right">
+  <div *ngFor="let chat of chatService.chats" class="text-right">
     <span class="badge badge-success">Daniel</span>
-    <p class="text-monospace text-white">Hello there,,,,,</p>
+    <p class="text-monospace text-white">{{ chat.message }}</p>
   </div>
 
-  <div>
+  <!-- <div>
     <span class="badge badge-info">Jenny</span>
     <p class="text-monospace text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-  </div>
+  </div> -->
  
 </div>
 

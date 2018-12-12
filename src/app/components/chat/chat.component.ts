@@ -1,3 +1,4 @@
+import { ChatServiceService } from './../../services/chat-service.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -9,9 +10,17 @@ export class ChatComponent {
 
   message: string;
 
-  constructor() { }
+  constructor(private chatService: ChatServiceService) { 
+    this.chatService.loadChats().subscribe();
+  }
 
   sendMessage() {
-    console.log(this.message);
+    if (this.message.length === 0) {
+      return;  
+    }
+    this.chatService.addNewChat(this.message).then( ()=> { 
+      console.log('Message was just sent');
+      this.message = '';
+    }).catch( error => console.error('Something went wrong', error));
   }
 }
