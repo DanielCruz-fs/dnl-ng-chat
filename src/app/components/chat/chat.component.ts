@@ -1,17 +1,26 @@
 import { ChatServiceService } from './../../services/chat-service.service';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-chat',
   templateUrl: './chat.component.html',
   styleUrls: ['./chat.component.css']
 })
-export class ChatComponent {
+export class ChatComponent implements OnInit {
 
   message: string;
+  element: any;
 
-  constructor(private chatService: ChatServiceService) { 
-    this.chatService.loadChats().subscribe();
+  constructor(public chatService: ChatServiceService) { 
+    this.chatService.loadChats().subscribe( () => {
+      setTimeout(() => {
+        this.element.scrollTop = this.element.scrollHeight;
+      },20);
+    });
+  }
+
+  ngOnInit() {
+    this.element = document.getElementById('app-messages');  
   }
 
   sendMessage() {
